@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block title %}
-    E-Bazar - Login
+    E-Bazar - Kirish
 {% endblock title %}
 
 {% block content %}
@@ -9,10 +9,10 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-6 mt-5">
-                <h2>Login sahifasi</h2>
+                <h2>Hisobga kirish</h2>
                 <form method ="post">{% csrf_token %}
                     {{ form|crispy }}
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary">Kirish</button>
                 </form>
             </div>
             <div class="col"></div>

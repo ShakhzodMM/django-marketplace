@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block title %}
-    Delete - {{product.title}}
+    E'lonni o'chirish - {{product.title}}
 {% endblock title %}
 
 {% block content %}
@@ -9,11 +9,11 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-6 mt-5">
-                <h2>Are you sure to delete - {{product.title}}</h2>
+                <h2>«{{product.title}}» e'lonini o'chirishni istaysizmi?</h2>
                 <form method ="post" enctype="multipart/form-data">{% csrf_token %}
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <a class="btn btn-secondary" href="{% url 'products:detail' product.id %}">Back Detail</a>
+                    <button type="submit" class="btn btn-danger">Ha, o'chirish</button>
+                    <a class="btn btn-secondary" href="{% url 'products:detail' product.id %}">Bekor qilish</a>
                 </form>
             </div>
             <div class="col"></div>

@@ -6,7 +6,7 @@
     <!-- Product Cart Start -->
     <div class="container">
         <div class=" w-100 mt-4">
-            <h4 class="d-block" >Recently Products in {{ category }}</h4>
+            <h4 class="d-block" >{{ category }} toifasidagi e'lonlar</h4>
             <div class="d-flex flex-wrap justify-content-between">
                 {% for product in products %}
                 <!-- Product Cart Start -->
@@ -17,7 +17,7 @@
                         <img height="200" class=" card-img-top" src="{{ product.productimage_set.all.first.image.url }}" alt="">        
                     {% else %}
                         <!-- Agar mahsulotga tegishli ProductImage obyektlari mavjud bo'lmasa, default rasmni ko'rsatadi -->
-                        <img height="200" class=" card-img-top" src="#" alt="Default Image">
+                        <img height="200" class=" card-img-top" src="#" alt="Standart rasm">
                     {% endif %}
 
                     <div class="card-body">
@@ -25,7 +25,7 @@
                         <span class="center card-text"><small>$ {{product.price}}</small></span>
                         <div class="buttons d-flex flex-wrap justify-content-between ">
                             <i class="bi bi-bookmark-fill"></i> 
-                            <a href="{% url 'products:detail' product.id %}" class="btn btn-outline-primary" >Details</a>
+                            <a href="{% url 'products:detail' product.id %}" class="btn btn-outline-primary" >Batafsil</a>
                         </div>
                     </div>
                 </div>  

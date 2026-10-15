@@ -26,11 +26,11 @@
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
+                            <span class="visually-hidden">Oldingi rasm</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                            <span class="visually-hidden">Keyingi rasm</span>
                         </button>
                   </div> 
                 </div>
@@ -40,17 +40,17 @@
                     <p >{{product.description|safe}}</p>
                     <div class="contact mt-4 ">
                         {% if request.user == product.author %}
-                        <a class="btn btn-warning" href="{% url 'products:update' product.id %}">Edit details</a>
+                        <a class="btn btn-warning" href="{% url 'products:update' product.id %}">E'lonni tahrirlash</a>
                         {% endif %}
-                        <a class="btn btn-primary" href="mailto:{{customuser.email}}">Email</a>
-                        <a class="btn btn-primary" href="tel:{{product.phone_number}}">Call</a>
+                        <a class="btn btn-primary" href="mailto:{{customuser.email}}">Elektron pochta</a>
+                        <a class="btn btn-primary" href="tel:{{product.phone_number}}">Qo'ng'iroq qilish</a>
                         <a class="btn btn-primary" href="http://t.me/@{{product.tg_username}}">Telegram</a>
                     </div>
                 </div>
             </div>
             <div class="row ">  
                 <div class="col-8 mt-5" >
-                    <h6  >In This Category</h6> 
+                    <h6  >Shu toifadagi e'lonlar</h6> 
                     <div class="d-flex flex-wrap justify-content-between">
                         {% for category in product.category.product_set.all %}
                         <div class="card border border-0 shadow-sm d-inline-block m-1 mt-3" style="width: 14rem;" >
@@ -60,7 +60,7 @@
                                 <span class="center card-text">{{category.price}} so'm</span>
                                 <div class="buttons d-flex flex-wrap justify-content-between ">
                                     <i class="bi bi-bookmark-fill"></i> 
-                                    <a href="{% url 'products:detail' category.id %}" class="btn btn-outline-primary" >Details</a>
+                                    <a href="{% url 'products:detail' category.id %}" class="btn btn-outline-primary" >Batafsil</a>
                                 </div>
                             </div>
                         </div> 
@@ -68,16 +68,16 @@
                     </div>
                 </div>
                 <div class="col-4 mt-5 shadow-sm ">
-                    <h6 class="pt-2" >Add comment</h6>
+                    <h6 class="pt-2" >Izoh qoldirish</h6>
                     <form action="{% url 'products:comment_new' product.id %}" method="post" class="input-group">{% csrf_token %} 
-                        <input class="form-control" name="body" type="text" placeholder="Type your comment..." aria-describedby="'button-addon" >
-                        <button class="btn btn-outline-success" type="submit" id="button-addon">Send</button>
+                        <input class="form-control" name="body" type="text" placeholder="Izohingizni yozing..." aria-describedby="'button-addon" >
+                        <button class="btn btn-outline-success" type="submit" id="button-addon">Yuborish</button>
                     </form>  
                     <hr>
-                    <h6>Comments</h6>
+                    <h6>Izohlar</h6>
                     {% for comment in product.comment_set.all %}
                     <small class="text-muted" >@{{comment.author}} | {{comment.date}}</small>
-                    <p>{{comment.body}} <small><a href="{% url 'products:comment_delete' product.id comment.id %}">delete</a></small> </p>  
+                    <p>{{comment.body}} <small><a href="{% url 'products:comment_delete' product.id comment.id %}">o'chirish</a></small> </p>  
                     {% endfor %}
                 </div>
             </div>

@@ -10,17 +10,17 @@
             <div class="col-12 card mt-5 ">
                 <div class="row">
                     <div class="col-2 m-3">
-                        <img class="img-thumbnail" width="150" height="150" src="{{customuser.avatar.url}}" alt="profile image">
+                        <img class="img-thumbnail" width="150" height="150" src="{{customuser.avatar.url}}" alt="Profil rasmi">
                     </div>
                     <div class="col-8 m-3">
                         <h2>{{customuser.get_full_name}}</h2>
                         <p class="text-muted" >@{{customuser.username}} | {{customuser.email}}</p>
                         {% if customuser == request.user %}                      
-                        <a class="btn btn-warning" href="{% url 'users:update' %}">Edit details</a>
-                        <a class="btn btn-danger" href="{% url 'password_change' %}">Update Password</a>
+                        <a class="btn btn-warning" href="{% url 'users:update' %}">Ma'lumotlarni tahrirlash</a>
+                        <a class="btn btn-danger" href="{% url 'password_change' %}">Parolni o'zgartirish</a>
                         {% endif %}
-                        <a class="btn btn-primary" href="mailto:{{customuser.email}}">Email</a>
-                        <a class="btn btn-primary" href="tel:{{customuser.phone_number}}">Call</a>
+                        <a class="btn btn-primary" href="mailto:{{customuser.email}}">Elektron pochta</a>
+                        <a class="btn btn-primary" href="tel:{{customuser.phone_number}}">Qo'ng'iroq qilish</a>
                         <a class="btn btn-primary" href="http://t.me/@{{customuser.tg_username}}">Telegram</a>
                     </div>
                 </div>
@@ -31,9 +31,9 @@
     <!-- Product Cart Start -->
     <div class="container">
         <div class=" w-100 mt-4">
-            <h4 class="d-block" >Recently Products @{{customuser}}</h4>
+            <h4 class="d-block" >@{{customuser}} joylagan e'lonlar</h4>
             {% if not customuser.product_set.exists %}
-                <center><p class="text-muted">Maxsulot yo'q</p></center>
+                <center><p class="text-muted">Hozircha e'lonlar yo'q.</p></center>
             {% endif %}
             <div class="d-flex flex-wrap justify-content-between">
                 {% for product in customuser.product_set.all %}
@@ -45,7 +45,7 @@
                         <img height="200" class=" card-img-top" src="{{ product.productimage_set.all.first.image.url }}" alt="">        
                     {% else %}
                         <!-- Agar mahsulotga tegishli ProductImage obyektlari mavjud bo'lmasa, default rasmni ko'rsatadi -->
-                        <img height="200" class=" card-img-top" src="#" alt="Default Image">
+                        <img height="200" class=" card-img-top" src="#" alt="Standart rasm">
                     {% endif %}
 
                     <div class="card-body">
@@ -53,7 +53,7 @@
                         <span class="center card-text"><small>$ {{product.price}}</small></span>
                         <div class="buttons d-flex flex-wrap justify-content-between ">
                             <i class="bi bi-bookmark-fill"></i> 
-                            <a href="#" class="btn btn-outline-primary" >Details</a>
+                            <a href="{% url 'products:detail' product.id %}" class="btn btn-outline-primary" >Batafsil</a>
                         </div>
                     </div>
                 </div>  
