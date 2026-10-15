@@ -28,6 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['web-production-5b939.up.railway.app', 'localhost', '127.0.0.1']
 # ALLOWED_HOSTS = ['*']
 
+# ALLOWED_HOSTS dan darhol keyin shu kodni qo'shasiz:
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-5b939.up.railway.app',
+]
 
 # Application definition
 
